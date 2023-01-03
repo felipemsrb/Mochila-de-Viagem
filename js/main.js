@@ -10,8 +10,15 @@ formulario.addEventListener("submit", (evento) => {
 });
 
 const criaNovoItem = (nome, quantidade) => {
-  console.log(nome);
-  console.log(quantidade);
-};
+  const novoItem = document.createElement("li");
+  novoItem.classList.add("item");
 
-console.log(criaNovoItem);
+  const numeroItem = document.createElement("strong");
+  numeroItem.innerHTML = quantidade;
+
+  novoItem.appendChild(numeroItem);
+  novoItem.innerHTML += nome;
+
+  const listaFinal = document.getElementById("lista");
+  listaFinal.appendChild(novoItem);
+};

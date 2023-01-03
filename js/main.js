@@ -3,7 +3,15 @@ const formulario = document.getElementById("novoItem");
 formulario.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
-  console.log(evento.target.elements["nome"].value);
-  console.log(evento.target.elements["quantidade"].value);
-  console.log(evento);
+  criaNovoItem(
+    evento.target.elements["nome"].value,
+    evento.target.elements["quantidade"].value
+  );
 });
+
+const criaNovoItem = (nome, quantidade) => {
+  console.log(nome);
+  console.log(quantidade);
+};
+
+console.log(criaNovoItem);

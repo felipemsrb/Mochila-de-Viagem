@@ -5,4 +5,5 @@ formulario.addEventListener("submit", (evento) => {
 
   console.log(evento.target.elements["nome"].value);
   console.log(evento.target.elements["quantidade"].value);
+  console.log(evento);
 });

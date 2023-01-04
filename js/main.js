@@ -9,6 +9,8 @@ formulario.addEventListener("submit", (evento) => {
   );
 });
 
+//adiciona um novo item na lista//
+
 const criaNovoItem = (nome, quantidade) => {
   const novoItem = document.createElement("li");
   novoItem.classList.add("item");

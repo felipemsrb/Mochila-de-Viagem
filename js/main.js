@@ -1,5 +1,6 @@
 const formulario = document.getElementById("novoItem");
 const listaFinal = document.getElementById("lista");
+const itens = [];
 
 //captura a informação das caixas de item e quantidade
 
@@ -26,4 +27,13 @@ const criaNovoItem = (nome, quantidade) => {
   novoItem.innerHTML += nome;
 
   listaFinal.appendChild(novoItem);
+
+  const itemAtual = {
+    nome: nome,
+    quantidade: quantidade,
+  };
+
+  itens.push(itemAtual);
+
+  localStorage.setItem("item", JSON.stringify(itens));
 };

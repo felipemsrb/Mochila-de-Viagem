@@ -5,13 +5,12 @@ const listaFinal = document.getElementById("lista");
 
 formulario.addEventListener("submit", (evento) => {
   evento.preventDefault();
-  let caixaNome = evento.target.elements["nome"];
-  let caixaQuantidade = evento.target.elements["quantidade"];
+  let nome = evento.target.elements["nome"];
+  let quantidade = evento.target.elements["quantidade"];
 
-  criaNovoItem(caixaNome.value, caixaQuantidade.value);
-  caixaNome.value = "";
-  caixaQuantidade.value = "";
-  console.log(caixaNome);
+  criaNovoItem(nome.value, quantidade.value);
+  nome.value = "";
+  quantidade.value = "";
 });
 
 //adiciona um novo item na lista//

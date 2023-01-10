@@ -3,7 +3,7 @@ const listaFinal = document.getElementById("lista");
 const itens = JSON.parse(localStorage.getItem("itens")) || [];
 
 itens.forEach((elemento) => {
-  console.log(elemento.nome, elemento.quantidade);
+  criaNovoItem(elemento);
 });
 
 //captura a informação das caixas de item e quantidade

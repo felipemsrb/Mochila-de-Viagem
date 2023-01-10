@@ -13,31 +13,31 @@ formulario.addEventListener("submit", (evento) => {
   let nome = evento.target.elements["nome"];
   let quantidade = evento.target.elements["quantidade"];
 
-  criaNovoItem(nome.value, quantidade.value);
+  const itemAtual = {
+    nome: nome.value,
+    quantidade: quantidade.value,
+  };
+
+  criaNovoItem(itemAtual);
+
+  itens.push(itemAtual);
+
+  localStorage.setItem("itens", JSON.stringify(itens));
   nome.value = "";
   quantidade.value = "";
 });
 
 //adiciona um novo item na lista//
 
-const criaNovoItem = (nome, quantidade) => {
+const criaNovoItem = (item) => {
   const novoItem = document.createElement("li");
   novoItem.classList.add("item");
 
   const numeroItem = document.createElement("strong");
-  numeroItem.innerHTML = quantidade;
+  numeroItem.innerHTML = item.quantidade;
 
   novoItem.appendChild(numeroItem);
-  novoItem.innerHTML += nome;
+  novoItem.innerHTML += item.nome;
 
   listaFinal.appendChild(novoItem);
-
-  const itemAtual = {
-    nome: nome,
-    quantidade: quantidade,
-  };
-
-  itens.push(itemAtual);
-
-  localStorage.setItem("itens", JSON.stringify(itens));
 };

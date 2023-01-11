@@ -29,7 +29,7 @@ formulario.addEventListener("submit", (evento) => {
 
 //adiciona um novo item na lista//
 
-const criaNovoItem = (item) => {
+function criaNovoItem(item) {
   const novoItem = document.createElement("li");
   novoItem.classList.add("item");
 
@@ -40,4 +40,4 @@ const criaNovoItem = (item) => {
   novoItem.innerHTML += item.nome;
 
   listaFinal.appendChild(novoItem);
-};
+}

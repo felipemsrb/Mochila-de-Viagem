@@ -51,7 +51,7 @@ function criaNovoItem(item) {
   novoItem.appendChild(numeroItem);
   novoItem.innerHTML += item.nome;
 
-  novoItem.appendChild(botaoDeleta());
+  novoItem.appendChild(botaoDeleta(item.id));
 
   listaFinal.appendChild(novoItem);
 }
@@ -63,15 +63,17 @@ function atualizaElemento(item) {
     item.quantidade;
 }
 
-function botaoDeleta() {
+function botaoDeleta(id) {
   const itemBotao = document.createElement("button");
   itemBotao.innerHTML = "DELETA";
   itemBotao.addEventListener("click", function () {
-    deletaItem(this.parentNode);
+    deletaItem(this.parentNode, id);
   });
   return itemBotao;
 }
 
-function deletaItem(tag) {
+function deletaItem(tag, id) {
   tag.remove();
+  itens.splice(itens.findIndex((elemento) => elemento.id === id));
+  localStorage.setItem("itens", JSON.stringify(itens));
 }

@@ -26,9 +26,10 @@ formulario.addEventListener("submit", (evento) => {
     itemAtual.id = existe.id;
     atualizaElemento(itemAtual);
     //atualiza o local storage
-    itens[existe.id] = itemAtual;
+    itens[itens.findIndex((elemento) => elemento.id === existe.id)] = itemAtual;
   } else {
-    itemAtual.id = itens.length;
+    //atualiza o id ao criar um item novo depois que a lista é atualizada
+    itemAtual.id = itens[itens.length - 1] ? itens[itens.length - 1].id + 1 : 0;
     criaNovoItem(itemAtual);
     itens.push(itemAtual);
   }

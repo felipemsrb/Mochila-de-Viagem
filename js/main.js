@@ -51,6 +51,8 @@ function criaNovoItem(item) {
   novoItem.appendChild(numeroItem);
   novoItem.innerHTML += item.nome;
 
+  novoItem.appendChild(botaoDeleta());
+
   listaFinal.appendChild(novoItem);
 }
 
@@ -59,4 +61,17 @@ function criaNovoItem(item) {
 function atualizaElemento(item) {
   document.querySelector("[data-id='" + item.id + "']").innerHTML =
     item.quantidade;
+}
+
+function botaoDeleta() {
+  const itemBotao = document.createElement("button");
+  itemBotao.innerHTML = "DELETA";
+  itemBotao.addEventListener("click", function () {
+    deletaItem(this.parentNode);
+  });
+  return itemBotao;
+}
+
+function deletaItem(tag) {
+  tag.remove();
 }
